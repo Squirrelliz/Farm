@@ -8,7 +8,7 @@ public class Seedbed : MonoBehaviour
     public static int STEP_EMPTY = 0;
     public static int STEP_GROWS = 1;
     public static int STEP_READY = 2;
-    public static int STEP_DEFAULT = 3;
+ 
 
 
     private SpriteRenderer seedbedSpriteRenderer;
@@ -43,19 +43,21 @@ public class Seedbed : MonoBehaviour
         {
             if (step == STEP_EMPTY)
             {
-                if (item.type == Item.TYPESEED)
+                if (item.type == Item.TYPESEED && Vector3.Distance(this.transform.position, player.transform.position) < 1.7f)
                 {
                     step = STEP_GROWS;
+                    readyForAction = false;
                     seedbed = item;
                     seedSpriteRenderer.sprite = Resources.Load<Sprite>("Plants/seedPotato");
                     StartCoroutine(grow());
                 }
             }
-            else if (step == STEP_READY)
+
+            else if (step == STEP_READY && Vector3.Distance(this.transform.position, player.transform.position) < 1.7f)
             {
                 readyPlantSpriteRenderer.sprite = Resources.Load<Sprite>("empty");
-                seedbedSpriteRenderer.sprite = Resources.Load<Sprite>("Seedbed/seedbedDirt");
-                step = STEP_DEFAULT;
+                //seedbedSpriteRenderer.sprite = Resources.Load<Sprite>("Seedbed/seedbedDirt");
+                step = STEP_EMPTY;
 
             }
         }
@@ -74,15 +76,10 @@ public class Seedbed : MonoBehaviour
     {
         if (step != STEP_GROWS)
         {
-            if (Vector3.Distance(this.transform.position, player.transform.position) < 1.7f && step != STEP_DEFAULT)
+            if (Vector3.Distance(this.transform.position, player.transform.position) < 1.7f )
             {
                 readyForAction = true;
                 seedbedSpriteRenderer.sprite = Resources.Load<Sprite>("Seedbed/seedbedSelected");
-            }
-            else if(step == STEP_DEFAULT)
-            {
-                readyForAction = false;
-                seedbedSpriteRenderer.sprite = Resources.Load<Sprite>("Seedbed/seedbedDirt");
             }
             else
             {

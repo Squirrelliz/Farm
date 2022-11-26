@@ -372,7 +372,7 @@ TextureImporter:
         y: 208
         width: 16
         height: 16
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -1858,7 +1858,7 @@ TextureImporter:
       mapLayer1_44: 120689072
       mapLayer1_69: -1972300102
       mapLayer1_72: -806195535
-      mapLayer1_63: 1956458398
+      mapLayer1_18: 570174083
       mapLayer1_51: -2055515176
       mapLayer1_34: -852320111
       mapLayer1_40: -435559380
@@ -1891,10 +1891,10 @@ TextureImporter:
       mapLayer1_15: 505666313
       mapLayer1_71: -1905987258
       mapLayer1_66: -742240979
-      mapLayer1_52: -552732418
-      mapLayer1_0: 489794974
-      mapLayer1_29: 1869851555
       mapLayer1_42: -591365747
+      mapLayer1_52: -552732418
+      mapLayer1_29: 1869851555
+      mapLayer1_0: 489794974
       mapLayer1_19: 1603315769
       mapLayer1_3: 220950363
       mapLayer1_16: -1222670073
@@ -1918,20 +1918,20 @@ TextureImporter:
       mapLayer1_28: -1957063953
       mapLayer1_43: -1312044819
       mapLayer1_53: -2008320823
+      mapLayer1_63: 1956458398
       mapLayer1_27: 521363012
       mapLayer1_75: -587090909
-      mapLayer1_25: 1445511713
       mapLayer1_67: -1705830399
+      mapLayer1_25: 1445511713
       mapLayer1_48: 1522250542
       mapLayer1_24: 647111298
-      mapLayer1_70: -942702948
-      mapLayer1_13: -92082756
-      mapLayer1_18: 570174083
-      mapLayer1_76: 1360566584
-      mapLayer1_4: 10497169
-      mapLayer1_17: -1504254955
-      mapLayer1_74: -735725212
       mapLayer1_31: -1524563554
+      mapLayer1_17: -1504254955
+      mapLayer1_70: -942702948
+      mapLayer1_76: 1360566584
+      mapLayer1_74: -735725212
+      mapLayer1_13: -92082756
+      mapLayer1_4: 10497169
       mapLayer1_33: -420915095
   spritePackingTag: 
   pSDRemoveMatte: 0
