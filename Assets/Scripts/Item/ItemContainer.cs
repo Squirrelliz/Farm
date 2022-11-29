@@ -32,6 +32,7 @@ public class ItemContainer : ScriptableObject
 {
     public List<ItemSlot> slots;
 
+    
     public void Add(_Item item, int count = 1)
     {
         if (item.stackable)

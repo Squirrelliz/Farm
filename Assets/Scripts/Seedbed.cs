@@ -4,28 +4,33 @@ using UnityEngine;
 
 public class Seedbed : MonoBehaviour
 {
- 
+   ToolBarController toolBarController;
     public static int STEP_EMPTY = 0;
     public static int STEP_GROWS = 1;
     public static int STEP_READY = 2;
- 
+    
+    int dropCount = 5;
+    float spread = 2f;
 
-
+    GameObject prodact;
     private SpriteRenderer seedbedSpriteRenderer;
     private SpriteRenderer seedSpriteRenderer;
     private SpriteRenderer readyPlantSpriteRenderer;
 
+    private ItemContainer itemContainer;
     private GameObject player;
     private bool readyForAction;
-    private Item seedbed;
+    _Item seed;
     private int step = 0;
     private void Start()
     {
+         itemContainer = GameManager.instance.itemContainer;
+         player = GameManager.instance.Player;
+         toolBarController = player.GetComponent<ToolBarController>();
          seedbedSpriteRenderer = GetComponent<SpriteRenderer>();
          seedSpriteRenderer = GetComponentsInChildren<SpriteRenderer>()[1];
          readyPlantSpriteRenderer = GetComponentsInChildren<SpriteRenderer>()[2];
-
-        player = GameObject.FindWithTag("Player");
+         prodact = Resources.Load<GameObject>("Prefabs/PlantsObjects/Potato");
     }
 
 
@@ -37,18 +42,18 @@ public class Seedbed : MonoBehaviour
     private void OnMouseDown()
     {
 
-        Item item = new Item("seedPotato", "Plants/seedPotato", "Plants/readyPotato", Item.TYPESEED, 1, 10, 1, 10f);
-
+        seed =  toolBarController.GetItem;
+        
         if (readyForAction)
         {
-            if (step == STEP_EMPTY)
+            if (step == STEP_EMPTY && seed != null)
             {
-                if (item.type == Item.TYPESEED && Vector3.Distance(this.transform.position, player.transform.position) < 1.7f)
+                if (seed.TYPESEED != null && Vector3.Distance(this.transform.position, player.transform.position) < 1.7f)
                 {
                     step = STEP_GROWS;
                     readyForAction = false;
-                    seedbed = item;
-                    seedSpriteRenderer.sprite = Resources.Load<Sprite>("Plants/seedPotato");
+                    seedSpriteRenderer.sprite = seed.icon;
+                    bool complete = seed.TYPESEED.OnApplyToItemContainer(seed, itemContainer);
                     StartCoroutine(grow());
                 }
             }
@@ -56,18 +61,26 @@ public class Seedbed : MonoBehaviour
             else if (step == STEP_READY && Vector3.Distance(this.transform.position, player.transform.position) < 1.7f)
             {
                 readyPlantSpriteRenderer.sprite = Resources.Load<Sprite>("empty");
-                //seedbedSpriteRenderer.sprite = Resources.Load<Sprite>("Seedbed/seedbedDirt");
-                step = STEP_EMPTY;
-
+                dropCount = 5;
+               step = STEP_EMPTY;
+                while (dropCount > 0)
+                {
+                dropCount--;
+                 Vector3 position = transform.position;
+                  position.x += spread * UnityEngine.Random.value - spread / 2;
+                 position.y += spread * UnityEngine.Random.value - spread / 2;
+                  GameObject go = Instantiate(prodact, position, Quaternion.identity);
+                     go.transform.position = position;
+               }
             }
         }
     }
        
     private IEnumerator grow()
     {
-        yield return new WaitForSeconds(seedbed.timeToGrow);
+        yield return new WaitForSeconds(seed.timeToGrow);
         seedSpriteRenderer.sprite = Resources.Load<Sprite>("empty");
-        readyPlantSpriteRenderer.sprite = Resources.Load<Sprite>(seedbed.imgUrl2);
+        readyPlantSpriteRenderer.sprite = seed.plant;
 
         step = STEP_READY;
     }

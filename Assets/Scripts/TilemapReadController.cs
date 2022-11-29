@@ -7,38 +7,50 @@ public class TilemapReadController : MonoBehaviour
 {
  
     [SerializeField] Tilemap ground;
-    [SerializeField] GameObject seedbed;
-
-    private void Update()
+    [SerializeField] List<TileData> tileDatas;
+    public CropsManager cropsManager;
+    Dictionary<TileBase, TileData> dataFromTiles;
+    private void Start()
     {
-        if (Input.GetMouseButtonDown(0))
+        dataFromTiles = new Dictionary<TileBase, TileData>();
+
+        foreach(TileData tileData in tileDatas)
         {
-         
-            GetTileBase(Input.mousePosition);
-            
+            foreach(TileBase tile in tileData.tiles)
+            {
+                dataFromTiles.Add(tile, tileData);
+            }
         }
     }
 
 
-    public TileBase GetTileBase(Vector2 mousePosition)
+    public Vector3Int GetGridPosition(Vector2 position, bool mousePosition)
     {
-        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        Vector3 worldPosition;
+
+        if (mousePosition)
+        {
+            worldPosition = Camera.main.ScreenToWorldPoint(position);
+        }
+        else
+        {
+            worldPosition = position;
+        }
 
         Vector3Int gridPosition = ground.WorldToCell(worldPosition);
-
+        
+        return gridPosition;
+    }
+    public TileBase GetTileBase(Vector3Int gridPosition)
+    {
         TileBase tile = ground.GetTile(gridPosition);
 
-        Vector2 mousePos = new Vector2(gridPosition.x,gridPosition.y);
 
-        Collider2D[] collidersInCircle = Physics2D.OverlapCircleAll(mousePos, 0.4f);
+        return tile;
+    }
 
-        if (tile.name == "plowable" && collidersInCircle.Length == 1)
-        {
-            
-                Instantiate(seedbed, gridPosition, Quaternion.identity);
-            
-        }
-      
-        return null;
+    public TileData GetTileData(TileBase tile)
+    {
+        return dataFromTiles[tile];
     }
 }

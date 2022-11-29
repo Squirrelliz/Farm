@@ -15,3 +15,10 @@ MonoBehaviour:
   Name: Axe
   stackable: 0
   icon: {fileID: 21300000, guid: 1c8650ed85a9d7f45b317deb3050940e, type: 3}
+  TYPEAXE: {fileID: 11400000, guid: fd37d684d7508b043a35c91edd17fc00, type: 2}
+  TYPEHOE: {fileID: 0}
+  TYPESWORD: {fileID: 0}
+  TYPESEED: {fileID: 0}
+  plant: {fileID: 0}
+  product: {fileID: 0}
+  timeToGrow: 0

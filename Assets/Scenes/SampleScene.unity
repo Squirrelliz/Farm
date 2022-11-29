@@ -383,7 +383,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &44069860 stripped
 RectTransform:
@@ -8025,7 +8025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4597012512603902165, guid: dfa330c2cfbf117479c955b24389c0c6, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4597012512603902165, guid: dfa330c2cfbf117479c955b24389c0c6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -70161,7 +70161,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -70693,6 +70693,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offsetDistanse: 1
   sizeOfInteractableArea: 1.2
+  tilemapReadController: {fileID: 1957490821}
+  maxDistance: 1.5
 --- !u!114 &633594458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70706,6 +70708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 482894549}
+  toolbarPanel: {fileID: 796097172}
 --- !u!114 &633594459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70718,6 +70721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16db0fc75595e0045b609b69166e10b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toolBarSize: 9
 --- !u!213 &662815484
 Sprite:
   m_ObjectHideFlags: 0
@@ -71495,7 +71499,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 796097172}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b93e8196fd009f84fb6577c48f18cd8d, type: 3}
+  m_Script: {fileID: 11500000, guid: d2601e2e77a846e48b8e5979bfd2dbd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 9e8a67d7218ad27469bb2f94211b94ea, type: 2}
@@ -71509,6 +71513,7 @@ MonoBehaviour:
   - {fileID: 44069861}
   - {fileID: 1774097436}
   - {fileID: 904353027}
+  toolBarController: {fileID: 633594459}
 --- !u!224 &809417592 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1531751030502149501, guid: 14a5a2c92658a9d4daa2ddb836e62cf6, type: 3}
@@ -74310,6 +74315,8 @@ GameObject:
   - component: {fileID: 1957490817}
   - component: {fileID: 1957490818}
   - component: {fileID: 1957490819}
+  - component: {fileID: 1957490821}
+  - component: {fileID: 1957490820}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -74339,7 +74346,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1957490814}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8fac19ea5fdb7504a9783ef0e525ee62, type: 3}
   m_Name: 
@@ -74362,6 +74369,8 @@ MonoBehaviour:
   itemContainer: {fileID: 11400000, guid: 9e8a67d7218ad27469bb2f94211b94ea, type: 2}
   Player: {fileID: 633594450}
   dragAndDropController: {fileID: 1957490819}
+  cropsManager: {fileID: 1957490820}
+  tilemapReadController: {fileID: 1957490821}
 --- !u!114 &1957490819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74378,6 +74387,36 @@ MonoBehaviour:
     item: {fileID: 0}
     count: 0
   dragItemIcon: {fileID: 8717402}
+--- !u!114 &1957490820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957490814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e97ca4736772364b869ac896ce21b35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crop: {fileID: 1056172140949778753, guid: d571cc2bcbd3bdb4689856ac76d57780, type: 3}
+--- !u!114 &1957490821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957490814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc6a40ebab9f2234d8e119f5141a1267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ground: {fileID: 265679958}
+  tileDatas:
+  - {fileID: 11400000, guid: d5d4d13d119c4754dbb85448d36f85ec, type: 2}
+  - {fileID: 11400000, guid: 4783fbb4b8155fa43931d3c9112f29cb, type: 2}
+  cropsManager: {fileID: 1957490820}
 --- !u!114 &1985627645 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 145649062953520345, guid: 14a5a2c92658a9d4daa2ddb836e62cf6, type: 3}
@@ -74675,7 +74714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4597012512603902165, guid: dfa330c2cfbf117479c955b24389c0c6, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4597012512603902165, guid: dfa330c2cfbf117479c955b24389c0c6, type: 3}
       propertyPath: m_LocalPosition.x

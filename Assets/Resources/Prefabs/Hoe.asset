@@ -15,3 +15,10 @@ MonoBehaviour:
   Name: Hoe
   stackable: 0
   icon: {fileID: 21300000, guid: 7999908d8aad4e449903d30d80cc310d, type: 3}
+  TYPEAXE: {fileID: 0}
+  TYPEHOE: {fileID: 11400000, guid: ca59f888f2668be438da597eea8d01a6, type: 2}
+  TYPESWORD: {fileID: 0}
+  TYPESEED: {fileID: 0}
+  plant: {fileID: 0}
+  product: {fileID: 0}
+  timeToGrow: 0
