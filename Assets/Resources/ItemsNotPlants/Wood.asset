@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2eb1bfd03cf4e646bad5fd5b0904293, type: 3}
+  m_Name: Wood
+  m_EditorClassIdentifier: 
+  Name: Wood
+  stackable: 1
+  icon: {fileID: 1256003430, guid: fdd97a9d6914dcd459a6c3c7dbb5a0fe, type: 3}
+  TYPEAXE: {fileID: 0}
+  TYPEHOE: {fileID: 0}
+  TYPESWORD: {fileID: 0}
+  TYPESEED: {fileID: 0}
+  plant: {fileID: 0}
+  timeToGrow: 0
+  price: 10
+  nameInShop: 
+  canBeSold: 1
+  canBeBought: 0
