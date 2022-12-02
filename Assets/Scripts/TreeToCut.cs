@@ -5,6 +5,7 @@ using UnityEngine;
 public class TreeToCut : ToolHit
 {
     [SerializeField] GameObject pickUpDrop;
+    
     [SerializeField] int dropCount = 5;
     [SerializeField] float spread = 2f;
     public override void Hit()
@@ -20,4 +21,6 @@ public class TreeToCut : ToolHit
         }
         Destroy(gameObject);
     }
+
+
 }

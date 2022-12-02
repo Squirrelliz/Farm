@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4597012512603902165}
   - component: {fileID: 2179688331158326973}
-  - component: {fileID: -6210462400797310419}
   - component: {fileID: -8870885087428986104}
+  - component: {fileID: 6156801466451853522}
   m_Layer: 0
   m_Name: birch
   m_TagString: Untagged
@@ -86,50 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &-6210462400797310419
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2400219496998643450}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.1875, y: 3.8125}
-    newSize: {x: 2.1875, y: 3.8125}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.131536, y: -1.90625}
-      - {x: -0.3094406, y: -1.858197}
-      - {x: -0.29845047, y: -1.5889338}
-      - {x: -0.22023964, y: -1.4662663}
-      - {x: -0.17175448, y: -1.386699}
-      - {x: -0.16490495, y: -1.1737297}
-      - {x: -0.28125, y: -1.03125}
-      - {x: -0.59375, y: -1.03125}
-      - {x: -0.78125, y: -0.96875}
-      - {x: -0.90625, y: -0.53125}
-      - {x: -0.90625, y: -0.46875}
-      - {x: 0.90625, y: -0.46875}
-      - {x: 1.03125, y: -0.59375}
-      - {x: 0.71875, y: -0.90625}
-      - {x: 0.46875, y: -1.09375}
-      - {x: 0.21875, y: -1.09375}
-      - {x: 0.21626937, y: -1.345867}
-      - {x: 0.29648304, y: -1.4040701}
-      - {x: 0.37745535, y: -1.8527019}
 --- !u!114 &-8870885087428986104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,3 +101,29 @@ MonoBehaviour:
   pickUpDrop: {fileID: 4894851148772595653, guid: 9a3ee7a83260dc64c862a98cf27bc29e, type: 3}
   dropCount: 5
   spread: 1
+--- !u!61 &6156801466451853522
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2400219496998643450}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.06400871, y: -1.8330745}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.1875, y: 3.8125}
+    newSize: {x: 2.1875, y: 3.8125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.9896545, y: 2.6877635}
+  m_EdgeRadius: 0

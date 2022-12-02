@@ -13,6 +13,9 @@ public class _Item : ScriptableObject
     public ToolAction TYPESWORD;
     public ToolAction TYPESEED;
     public Sprite plant;
-    public GameObject product;
     public float timeToGrow;
+    public int price;
+    public string nameInShop;
+    public bool canBeSold;
+    public bool canBeBought;
 }

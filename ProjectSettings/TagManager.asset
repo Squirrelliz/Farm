@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GroundForSeedbeds
   - player
+  - Store
   layers:
   - Default
   - TransparentFX

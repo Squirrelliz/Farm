@@ -16,4 +16,6 @@ public class GameManager : MonoBehaviour
     public ItemDragAndDropController dragAndDropController;
     public CropsManager cropsManager;
     public TilemapReadController tilemapReadController;
+    public Character character;
+    public ItemContainer Shop;
 }

@@ -7,6 +7,7 @@ public class ToolsPlayerController : MonoBehaviour
 {
     PlayerMovment character;
     Rigidbody2D rbOfPlayer;
+    Animator playerAnimator;
     ToolBarController toolBarController;
     [SerializeField] float offsetDistanse = 1f;
     [SerializeField] float sizeOfInteractableArea = 1.2f;
@@ -16,6 +17,7 @@ public class ToolsPlayerController : MonoBehaviour
     bool selectable;
     private void Awake()
     {
+        playerAnimator = GetComponent<Animator>();
         character = GetComponent<PlayerMovment>();
         rbOfPlayer = GetComponent<Rigidbody2D>();
         toolBarController = GetComponent<ToolBarController>();

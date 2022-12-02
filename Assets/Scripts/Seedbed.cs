@@ -9,10 +9,9 @@ public class Seedbed : MonoBehaviour
     public static int STEP_GROWS = 1;
     public static int STEP_READY = 2;
     
-    int dropCount = 5;
+    int dropCount;
     float spread = 2f;
 
-    GameObject prodact;
     private SpriteRenderer seedbedSpriteRenderer;
     private SpriteRenderer seedSpriteRenderer;
     private SpriteRenderer readyPlantSpriteRenderer;
@@ -21,7 +20,10 @@ public class Seedbed : MonoBehaviour
     private GameObject player;
     private bool readyForAction;
     _Item seed;
+    private string nameProdact;
     private int step = 0;
+    const float TTL = 500f;
+    float ttl = TTL;
     private void Start()
     {
          itemContainer = GameManager.instance.itemContainer;
@@ -30,13 +32,22 @@ public class Seedbed : MonoBehaviour
          seedbedSpriteRenderer = GetComponent<SpriteRenderer>();
          seedSpriteRenderer = GetComponentsInChildren<SpriteRenderer>()[1];
          readyPlantSpriteRenderer = GetComponentsInChildren<SpriteRenderer>()[2];
-         prodact = Resources.Load<GameObject>("Prefabs/PlantsObjects/Potato");
+         
     }
 
 
     private void Update()
-    {
-        
+    { if (step == STEP_EMPTY)
+        {
+            ttl -= Time.fixedDeltaTime;
+            if (ttl < 0)
+            {
+                Destroy(gameObject);
+            }
+        } else if (step != STEP_EMPTY)
+        {
+            ttl = TTL;
+        }
     }
 
     private void OnMouseDown()
@@ -54,6 +65,7 @@ public class Seedbed : MonoBehaviour
                     readyForAction = false;
                     seedSpriteRenderer.sprite = seed.icon;
                     bool complete = seed.TYPESEED.OnApplyToItemContainer(seed, itemContainer);
+                    nameProdact = seed.name;
                     StartCoroutine(grow());
                 }
             }
@@ -61,7 +73,8 @@ public class Seedbed : MonoBehaviour
             else if (step == STEP_READY && Vector3.Distance(this.transform.position, player.transform.position) < 1.7f)
             {
                 readyPlantSpriteRenderer.sprite = Resources.Load<Sprite>("empty");
-                dropCount = 5;
+                 
+               dropCount = Random.Range(2,5);
                step = STEP_EMPTY;
                 while (dropCount > 0)
                 {
@@ -69,7 +82,7 @@ public class Seedbed : MonoBehaviour
                  Vector3 position = transform.position;
                   position.x += spread * UnityEngine.Random.value - spread / 2;
                  position.y += spread * UnityEngine.Random.value - spread / 2;
-                  GameObject go = Instantiate(prodact, position, Quaternion.identity);
+                  GameObject go = Instantiate(Resources.Load<GameObject>(nameProdact), position, Quaternion.identity);
                      go.transform.position = position;
                }
             }
