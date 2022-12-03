@@ -24,3 +24,4 @@ MonoBehaviour:
   price: 20
   nameInShop: Potato
   canBeSold: 1
+  canBeBought: 0

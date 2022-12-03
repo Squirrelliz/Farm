@@ -22,7 +22,7 @@ public class Seedbed : MonoBehaviour
     _Item seed;
     private string nameProdact;
     private int step = 0;
-    const float TTL = 500f;
+    const float TTL = 60f;
     float ttl = TTL;
     private void Start()
     {

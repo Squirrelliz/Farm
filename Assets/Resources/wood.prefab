@@ -97,8 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f92f77f01802b074eb5c517e820b272b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemContainer: {fileID: 11400000, guid: 9e8a67d7218ad27469bb2f94211b94ea, type: 2}
-  speed: 1.5
+  speed: 6
   pickUpDistance: 2
   ttl: 60
   item: {fileID: 11400000, guid: a1cf195c6048dea4693cc24678091a5e, type: 2}

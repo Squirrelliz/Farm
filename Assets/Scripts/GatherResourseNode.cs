@@ -7,6 +7,7 @@ public class GatherResourseNode : ToolAction
 {
     Animator player;
     PlayerMovment playerMovement;
+    [SerializeField] AudioClip audioClip;
     
     [SerializeField] float sizeOfInteractableArea = 1f;
     public override bool OnApply(Vector2 worldPoint)
@@ -22,7 +23,7 @@ public class GatherResourseNode : ToolAction
                 playerMovement = GameManager.instance.Player.GetComponent<PlayerMovment>();
 
                 Vector2 v = playerMovement.lastMovement;
-
+                AudioManager.instance.Play(audioClip);
                 player.SetFloat("Horizontal",v.x);
                 player.SetFloat("Vertical", v.y);
                 player.SetTrigger("Cut");

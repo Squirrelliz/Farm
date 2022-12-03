@@ -13,6 +13,10 @@ public class ToolsPlayerController : MonoBehaviour
     [SerializeField] float sizeOfInteractableArea = 1.2f;
     [SerializeField] TilemapReadController tilemapReadController;
     [SerializeField] float maxDistance = 3f;
+    [SerializeField] GameObject inventory;
+    [SerializeField] Animator pigAnimator;
+    [SerializeField] AudioClip audioClip;
+    [SerializeField] GameObject shop;
     Vector3Int selectedTilePosition;
     bool selectable;
     private void Awake()
@@ -30,6 +34,7 @@ public class ToolsPlayerController : MonoBehaviour
             SelectTile();
             CanSelectCheck();
             UseToolGrid();
+            pigFlex();
             if (UseToolWorld() == true)
             {
                 return;
@@ -37,6 +42,15 @@ public class ToolsPlayerController : MonoBehaviour
         }
     }
 
+
+   private void pigFlex()
+    {
+        if(Vector3.Distance(transform.position, shop.transform.position) < 3f && inventory.activeInHierarchy == false)
+        {
+            AudioManager.instance.Play(audioClip);
+            pigAnimator.SetTrigger("Player");
+        }
+    }
     private void SelectTile()
     {
         selectedTilePosition = tilemapReadController.GetGridPosition(Input.mousePosition, true);

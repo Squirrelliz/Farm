@@ -5,13 +5,14 @@ using UnityEngine;
 public class CropsManager : MonoBehaviour
 {
     [SerializeField] GameObject crop;
+    [SerializeField] AudioClip audioClip;
     Animator player;
     PlayerMovment playerMovement;
     public void Plow(Vector3Int gridPosition)
     {
         Vector2 mousePos = new Vector2(gridPosition.x, gridPosition.y);
 
-        Collider2D[] collidersInCircle = Physics2D.OverlapCircleAll(mousePos, 0.3f);
+        Collider2D[] collidersInCircle = Physics2D.OverlapCircleAll(mousePos, 0.1f);
         if (collidersInCircle.Length == 1)
         {
             player = GameManager.instance.Player.GetComponent<Animator>();
@@ -19,6 +20,7 @@ public class CropsManager : MonoBehaviour
 
             Vector2 v = playerMovement.lastMovement;
 
+            AudioManager.instance.Play(audioClip);
             player.SetFloat("Horizontal", v.x);
             player.SetFloat("Vertical", v.y);
             player.SetTrigger("Plow");

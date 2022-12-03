@@ -21,6 +21,7 @@ MonoBehaviour:
   TYPESEED: {fileID: 0}
   plant: {fileID: 0}
   timeToGrow: 0
-  price: 60
+  price: 2000
   nameInShop: 
   canBeSold: 1
+  canBeBought: 0

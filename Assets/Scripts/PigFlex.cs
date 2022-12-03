@@ -7,6 +7,7 @@ public class PigFlex : MonoBehaviour
     [SerializeField] GameObject inventory;
     [SerializeField] GameObject player;
     [SerializeField] Animator animator;
+    [SerializeField] AudioClip audioClip;
     Vector3 position;
     float time = 5f;
     private void Start()
@@ -14,12 +15,14 @@ public class PigFlex : MonoBehaviour
          position = transform.position;
     }
 
-    private void OnMouseDown()
+    private void Update()
     {
-        if (Vector3.Distance(player.transform.position, position) < 4f && inventory.activeInHierarchy==false)
+       
+        if (Vector3.Distance(player.transform.position, position) < 10f && inventory.activeInHierarchy==false)
         {
+            AudioManager.instance.Play(audioClip);
             animator.SetTrigger("Player");
-            stopFlex();
+           
 
         }
     }
